@@ -4,10 +4,10 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "prebuild": "chmod +x node_modules/.bin/tsc",
-    "build": "npx tsc -b && vite build",
-    "preview": "vite preview"
+  "dev": "vite",
+  "prebuild": "chmod +x node_modules/.bin/tsc && chmod +x node_modules/.bin/vite",
+  "build": "npx tsc -b && npx vite build",
+  "preview": "vite preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
