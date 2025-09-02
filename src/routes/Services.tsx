@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { SERVICES } from "../data/services";
 
-type Svc = (typeof SERVICES)[number];
+// 👇 extend type to include optional cover
+type Svc = (typeof SERVICES)[number] & { cover?: string };
 
 function badgeFor(s: Svc) {
   const t = s.title.toLowerCase();
@@ -58,7 +59,9 @@ function ServiceCard({ s }: { s: Svc }) {
     <article className="group rounded-2xl overflow-hidden border bg-white shadow-soft hover:shadow transition">
       {/* cover */}
       <div className="relative h-48">
-        <img src={s.cover} alt={s.title} className="absolute inset-0 w-full h-full object-cover" />
+        {s.cover && (
+          <img src={s.cover} alt={s.title} className="absolute inset-0 w-full h-full object-cover" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
         <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
           <h3 className="text-white text-xl font-semibold drop-shadow">{s.title}</h3>
@@ -138,7 +141,6 @@ export default function Services() {
             </div>
           </div>
           <div className="relative">
-            {/* keep your own hero image if you have one */}
             <img
               src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop"
               alt="Programs"

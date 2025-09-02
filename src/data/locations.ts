@@ -32,14 +32,4 @@ export const LOCATIONS: Location[] = [
       "Sunday: Closed",
     ],
   },
-  // example location object
-{
-  name: "Station Branch, Surat",
-  address: "...",
-  phone: "99133 48004",
-  hours: ["Mon–Sat 10:00–19:00"],
-  mapEmbed: "...",
-  poster: BRAND_POSTER, // NEW
-}
-
 ];

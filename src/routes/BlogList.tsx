@@ -23,7 +23,7 @@ function useFilters() {
   function set(next: Record<string, string | number | undefined | boolean>) {
     const params = new URLSearchParams(sp);
     Object.entries(next).forEach(([k, v]) => {
-      if (!v || v === "All" || v === 1 || v === false) params.delete(k);
+      if (!v || v === "All" || v === 1) params.delete(k);
       else params.set(k, String(v));
     });
     if ("q" in next || "category" in next || "tag" in next || "saved" in next) params.delete("page");
